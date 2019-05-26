@@ -50,7 +50,7 @@ class EditExercise extends Component {
 
     console.log(exercise);
     axios
-      .post('http://localhost:5000/exercises/update/' + id, exercise)
+      .post('https://exercise-tracking-app.herokuapp.com/exercises/update/' + id, exercise)
       .then((res) => console.log(res.data));
 
     window.location = '/';
@@ -59,7 +59,7 @@ class EditExercise extends Component {
   componentDidMount() {
     const { id } = this.props.match.params;
     axios
-      .get('http://localhost:5000/exercises/' + id)
+      .get('https://exercise-tracking-app.herokuapp.com/exercises/' + id)
       .then((res) => {
         const { username, description, duration, date } = res.data;
         this.setState({
@@ -72,7 +72,7 @@ class EditExercise extends Component {
       .catch((err) => console.log(err));
 
     axios
-      .get('http://localhost:5000/users/')
+      .get('https://exercise-tracking-app.herokuapp.com/users/')
       .then((res) => {
         if (res.data.length > 0) {
           this.setState({

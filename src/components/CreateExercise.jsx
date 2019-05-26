@@ -49,7 +49,7 @@ class CreatExercise extends Component {
 
     console.log(exercise);
     axios
-      .post('http://localhost:5000/exercises/add', exercise)
+      .post('https://exercise-tracking-app.herokuapp.com/exercises/add', exercise)
       .then((res) => console.log(res.data));
 
     window.location = '/';
@@ -57,7 +57,7 @@ class CreatExercise extends Component {
 
   componentDidMount() {
     axios
-      .get('http://localhost:5000/users/')
+      .get('https://exercise-tracking-app.herokuapp.com/users/')
       .then((res) => {
         if (res.data.length > 0) {
           this.setState({
